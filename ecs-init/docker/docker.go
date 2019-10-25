@@ -331,7 +331,7 @@ func (c *Client) getHostConfig() *godocker.HostConfig {
 	dockerEndpointAgent := defaultDockerEndpoint
 	dockerUnixSocketSourcePath, fromEnv := config.DockerUnixSocket()
 	if fromEnv {
-		dockerEndpointAgent = "/var/run/docker.sock"
+		dockerEndpointAgent = dockerUnixSocketSourcePath
 	}
 
 	binds := []string{
